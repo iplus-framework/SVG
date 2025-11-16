@@ -2,7 +2,8 @@
 
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
-        <TargetFrameworks>net8.0-windows;net6.0-windows;netcoreapp3.1;net462</TargetFrameworks>
+        <!--<TargetFrameworks>net8.0-windows;net6.0-windows;netcoreapp3.1;net462</TargetFrameworks>-->
+        <TargetFrameworks>$(AvaloniaBuildFramework)</TargetFrameworks>
         <UseWindowsForms>true</UseWindowsForms>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
         <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
@@ -28,9 +29,9 @@
         <DefineConstants Condition="$(TargetFramework.StartsWith('net8'))">$(DefineConstants);NETNEXT;NET80</DefineConstants>
     </PropertyGroup>
 
-    <ItemGroup Condition=" '$(TargetFramework)' == 'net462'">
+    <!--<ItemGroup Condition=" '$(TargetFramework)' == 'net462'">
         <Reference Include="System.Design" />
-    </ItemGroup>
+    </ItemGroup>-->
 
     <ItemGroup>
         <ProjectReference Include="..\..\Source\Svg.csproj" />
@@ -38,7 +39,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="System.Resources.Extensions" Version="5.0.0" />
+        <PackageReference Include="System.Resources.Extensions" />
     </ItemGroup>
 
     <ItemGroup>

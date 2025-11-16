@@ -1,8 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <OutputType>Exe</OutputType>
-        <TargetFrameworks>net8.0;net6.0;netcoreapp3.1;net462</TargetFrameworks>
-        <IsPackable>false</IsPackable>
+        <!--<TargetFrameworks>net8.0;net6.0;netcoreapp3.1;net462</TargetFrameworks>-->
+      <TargetFrameworks>$(AvaloniaBuildFramework)</TargetFrameworks>
+      <IsPackable>false</IsPackable>
         <LangVersion>10.0</LangVersion>
         <SignAssembly>True</SignAssembly>
         <AssemblyOriginatorKeyFile>..\Svg.UnitTests\svgkey.snk</AssemblyOriginatorKeyFile>
@@ -29,11 +30,11 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4">
+        <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" VersionOverride="4.8.0">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="BenchmarkDotNet" Version="0.13.5" />
+        <PackageReference Include="BenchmarkDotNet" />
     </ItemGroup>
 
     <ItemGroup>

@@ -2,8 +2,9 @@
 
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
-        <TargetFrameworks>net8.0-windows;net6.0-windows;net462</TargetFrameworks>
-        <UseWindowsForms>true</UseWindowsForms>
+        <!--<TargetFrameworks>net8.0-windows;net6.0-windows;net462</TargetFrameworks>-->
+      <TargetFrameworks>$(AvaloniaBuildFramework)-windows</TargetFrameworks>
+      <UseWindowsForms>true</UseWindowsForms>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
         <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
         <Configurations>Debug;Release</Configurations>
@@ -21,7 +22,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="System.Resources.Extensions" Version="5.0.0" />
+        <PackageReference Include="System.Resources.Extensions" />
     </ItemGroup>
 
 </Project>

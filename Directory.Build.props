@@ -1,0 +1,5 @@
+<Project>
+  <!-- iPlus settings and overrides -->
+  <Import Project="$(MSBuildThisFileDirectory)../iPlus/build/Avalonia.Build.props" Condition="Exists('$(MSBuildThisFileDirectory)../iPlus/build/Avalonia.Build.props')" />
+  <!-- End iPlus settings and overrides -->
+</Project>

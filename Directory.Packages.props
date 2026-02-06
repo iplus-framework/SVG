@@ -3,15 +3,15 @@
   <Import Condition="'$(UseAvaloniaFork)' == 'True'" Project="$(MSBuildThisFileDirectory)../iPlus/Directory.Packages.props" />
   <!-- End iPlus settings and overrides -->
 
-  <ItemGroup Condition="'$(UseAvaloniaFork)' == 'True'">
-    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" VersionOverride="4.8.0" />
-    <PackageVersion Include="Microsoft.CodeAnalysis.Analyzers" VersionOverride="3.3.4" />
-  </ItemGroup>
+  <!-- <ItemGroup Condition="'$(UseAvaloniaFork)' == 'True'">
+    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.Analyzers" />
+  </ItemGroup> -->
   
   <ItemGroup Condition="'$(UseAvaloniaFork)' == 'False'">
     <PackageVersion Include="System.Drawing.Common" Version="5.0.3" />
     <PackageVersion Include="ExCSS" Version="4.3.1" />
-    <PackageVersion Include="Nerdbank.GitVersioning" Version="3.3.37" />
+    <PackageVersion Include="Nerdbank.GitVersioning" Version="3.9.50" />
     <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="1.0.0" />
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.8.0" />
     <PackageVersion Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4" />

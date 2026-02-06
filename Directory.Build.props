@@ -3,6 +3,10 @@
   <PropertyGroup>
     <IsAvaloniaUIProject>true</IsAvaloniaUIProject>
   </PropertyGroup>
+  <PropertyGroup>
+    <RuntimeIdentifier Condition="'$(OS)' == 'Linux'">linux-x64</RuntimeIdentifier>
+    <RuntimeIdentifier Condition="'$(OS)' == 'Windows_NT'">win-x64</RuntimeIdentifier>
+  </PropertyGroup>
   <Import Project="$(MSBuildThisFileDirectory)../iPlus/build/Avalonia.Build.props" Condition="Exists('$(MSBuildThisFileDirectory)../iPlus/build/Avalonia.Build.props')" />
   <!-- End iPlus settings and overrides -->
 </Project>

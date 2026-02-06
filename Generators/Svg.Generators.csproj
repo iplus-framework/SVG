@@ -1,6 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <UseAvaloniaFork Condition="'$(UseAvaloniaFork)' == ''">True</UseAvaloniaFork>
+  </PropertyGroup>
+
+  <PropertyGroup>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <!--<TargetFrameworks>$(AvaloniaBuildFramework)</TargetFrameworks>-->
     <OutputType>Library</OutputType>
@@ -23,13 +27,35 @@
     <Compile Remove="AvailableElementsGeneratorNet80.cs" />
   </ItemGroup>
 
+  <!-- <ItemGroup Condition="'$(IsSymbolicLinkContext)' == 'true'">
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.12.0" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="4.12.0" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(IsSymbolicLinkContext)' != 'true' And '$(UseAvaloniaFork)' == 'False'">
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(IsSymbolicLinkContext)' != 'true' And '$(UseAvaloniaFork)' == 'True'">
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" VersionOverride="4.8.0" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" VersionOverride="3.3.4" PrivateAssets="all" />
+  </ItemGroup> -->
+
   <ItemGroup Condition="'$(UseAvaloniaFork)' == 'False'">
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" PrivateAssets="all" />
     <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" PrivateAssets="all" />
   </ItemGroup>
+
+  <!-- When using Avalonia Fork (CPM or Standalone) -->
   <ItemGroup Condition="'$(UseAvaloniaFork)' == 'True'">
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" VersionOverride="4.8.0" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" VersionOverride="3.3.4" PrivateAssets="all" />
+    <!-- In CPM context, VersionOverride applies. in non-CPM, it acts like Version if supported, or we just need Version -->
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.8.0" VersionOverride="4.8.0" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4" VersionOverride="3.3.4" PrivateAssets="all" />
   </ItemGroup>
+  
+  <Target Name="LogUseAvaloniaFork" BeforeTargets="Build">
+    <Message Text="UseAvaloniaFork=$(UseAvaloniaFork)" Importance="High" />
+  </Target>
 
 </Project>

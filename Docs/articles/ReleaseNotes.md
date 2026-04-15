@@ -3,12 +3,17 @@ The release versions are NuGet releases.
 
 ## Unreleased
 
+### Changes
+* Removed support for unsupported .NET 6 and .NET 7, added support for .NET 9. (see [PR #1192](https://github.com/svg-net/SVG/pull/1192))
+* Fixes SVG rendering with invalid syntax, i.e. `fill="url(foo"` where url is not closed properly. (see [PR #1196](https://github.com/svg-net/SVG/pull/1196))
+
 ### Enhancements
 * Added support for `Switch` element with "systemLanguage" selector attribute (see [#1176](https://github.com/svg-net/SVG/issues/1176)).
 * Enabled `IsTrimmable` and `IsAotCompatible` attributes on the assembly (see [#1184](https://github.com/svg-net/SVG/pull/1184)).
 
 ### Fixes
 * Fixed: `<CompilerGeneratedFilesOutputPath>` in `Svg.Custom` to generate `Generated` directory under project. (see [PR #1153](https://github.com/svg-net/SVG/pull/1153))
+* Fixed `SvgElementCollection.Insert()` to allow child elements to be added to end of list (see [PR #1200](https://github.com/svg-net/SVG/issues/1101))
 
 ## [Version 3.4.7](https://www.nuget.org/packages/Svg/3.4.7)  (2024-02-22)
 

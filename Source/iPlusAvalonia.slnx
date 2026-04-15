@@ -1,0 +1,15 @@
+<Solution>
+  <Folder Name="/Generators/">
+    <Project Path="../Generators/Svg.Generators.csproj" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path="../Directory.Build.props" />
+    <File Path="../Directory.Packages.props" />
+    <File Path=".editorconfig" />
+    <File Path="version.json" />
+  </Folder>
+  <Project Path="Svg.csproj" />
+  <Properties Name="TestCaseManagementSettings" Scope="PostLoad">
+    <Property Name="CategoryFile" Value="Svg.vsmdi" />
+  </Properties>
+</Solution>

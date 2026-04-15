@@ -15,16 +15,16 @@ jobs:
       matrix:
         os: [windows-latest]
         # os: [windows-latest, ubuntu-latest]
-        framework: [net8.0, net6.0, netcoreapp3.1, net462]
+        framework: [net8.0, net9.0, netcoreapp3.1, net462]
     steps:
       - name: Checkout source
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0  # needed for GitVersioning to work
       - name: Setup NuGet
-        uses: NuGet/setup-nuget@v2
+        uses: NuGet/setup-nuget@v3
       - name: Cache NuGet packages
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         id: cache
         with:
           path: ~/.nuget/packages
@@ -57,13 +57,13 @@ jobs:
         framework: [net8.0]
     steps:
       - name: Checkout source
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Setup NuGet
-        uses: NuGet/setup-nuget@v2
+        uses: NuGet/setup-nuget@v3
       - name: Cache NuGet packages
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         id: cache
         with:
           path: ~/.nuget/packages

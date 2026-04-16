@@ -7,6 +7,7 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <!--<TargetFrameworks>$(AvaloniaBuildFramework)</TargetFrameworks>-->
+    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
     <OutputType>Library</OutputType>
     <IsPackable>False</IsPackable>
     <AnalysisLevel>latest</AnalysisLevel>
@@ -49,7 +50,6 @@
 
   <!-- When using Avalonia Fork (CPM or Standalone) -->
   <ItemGroup Condition="'$(UseAvaloniaFork)' == 'True'">
-    <!-- In CPM context, VersionOverride applies. in non-CPM, it acts like Version if supported, or we just need Version -->
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.8.0" VersionOverride="4.8.0" PrivateAssets="all" />
     <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4" VersionOverride="3.3.4" PrivateAssets="all" />
   </ItemGroup>
